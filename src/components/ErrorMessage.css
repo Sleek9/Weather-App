@@ -1,0 +1,7 @@
+.error {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dd482d;
+}

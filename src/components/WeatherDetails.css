@@ -1,0 +1,72 @@
+.card {
+  color: #787c8c;
+  background-color: #2e3341;
+  padding: 10px;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.card {
+  display: grid;
+  grid-template-areas:
+    "city city"
+    "img temp"
+    "img temp";
+  grid-template-columns: 50% 1fr;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.city {
+  grid-area: city;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #787c8c;
+}
+
+.temp {
+  grid-area: temp;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagen p {
+  margin: 0;
+  position: relative;
+  top: -30px;
+}
+
+.imagen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tempFeels {
+  font-size: 15px;
+}
+
+.tempC {
+  margin: 0;
+  margin-top: 60px;
+  font-size: 20px;
+}
+
+@media (min-width: 481px) {
+  .card {
+    width: 600px;
+  }
+
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .tempC {
+    margin-top: 45px;
+    font-size: 50px;
+  }
+}
