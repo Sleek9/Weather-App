@@ -2,4 +2,8 @@
 
 A simple application that shows you the weather, made with Reactjs
 
-<pre>test</pre>
+Run server development
+
+---
+
+<code>test</code>
