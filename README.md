@@ -2,9 +2,7 @@
 
 A simple application that shows you the weather, made with Reactjs
 
-Run server development
-
----
+## Run server development
 
 <pre>npm run start</pre>
 
