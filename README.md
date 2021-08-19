@@ -6,4 +6,8 @@ Run server development
 
 ---
 
-<code>test</code>
+<pre>npm run start</pre>
+
+## Create build
+
+<pre>npm run build</pre>
