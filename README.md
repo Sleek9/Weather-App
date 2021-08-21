@@ -9,3 +9,5 @@ A simple application that shows you the weather, made with Reactjs
 ## Create build
 
 <pre>npm run build</pre>
+
+## Web
