@@ -63,7 +63,7 @@ const WeatherApp = () => {
   return (
     <div className="App">
       <div className="header">
-        <h2>Clima Hoy</h2>
+        <h2>Clima Hoya</h2>
         <i className="fas logo">&#xf6c4;</i>
       </div>
       <SearchBar handleSearch={handleSearch} />
