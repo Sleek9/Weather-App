@@ -4,7 +4,11 @@ import "./SearchBar.css";
 const SearchBar = ({ handleSearch }) => {
   const [search, setSearch] = useState(null);
 
-  const handleChange = (e) => setSearch(e.target.value);
+  const handleChange = (e) => {
+    if (e.target.value) {
+      setSearch(e.target.value);
+    }
+  };
 
   const handleChangeSearch = (e) => {
     e.preventDefault();

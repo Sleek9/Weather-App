@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 import SearchBar from "./SearchBar";
@@ -7,26 +8,45 @@ import ErrorMessage from "./ErrorMessage";
 import Loader from "./Loader";
 
 const WeatherApp = () => {
-  const [search, setSearch] = useState(null);
+  const [searchInput, setSearchInput] = useState(null);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(false);
   const [errorData, setErrorData] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSearch = (searchValue) => setSearch(searchValue);
+  let { search } = useLocation();
+  let query = new URLSearchParams(search);
+
+  let qSearch = query.get("q");
+  let history = useHistory();
+
+  const handleSearch = (searchValue) => {
+    if (!qSearch) {
+      setSearchInput(qSearch);
+    } else {
+      setSearchInput(searchValue);
+    }
+  };
 
   useEffect(() => {
-    if (!search) return;
+    if (qSearch) {
+      setSearchInput(qSearch);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!searchInput) return;
 
     const getData = async () => {
       setLoading(true);
       try {
         let res = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${search}&lang=es&units=metric&appid=32af7cce19ca153549abe935840d6753`
+          `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&lang=es&units=metric&appid=32af7cce19ca153549abe935840d6753`
         );
 
         setResponse(res.data);
         setError(false);
+        history.push({ search: `?q=${searchInput}` });
       } catch (error) {
         setErrorData(error.response);
         setError(true);
@@ -38,7 +58,7 @@ const WeatherApp = () => {
     };
     getData();
     setLoading(false);
-  }, [search]);
+  }, [searchInput]);
 
   return (
     <div className="App">
