@@ -23,8 +23,11 @@ const WeatherApp = () => {
   const handleSearch = (searchValue) => {
     if (!qSearch) {
       setSearchInput(qSearch);
-    } else {
-      setSearchInput(searchValue);
+    }
+    setSearchInput(searchValue);
+
+    if (history.location.search !== `?q=${searchValue}`) {
+      history.push({ search: `?q=${searchValue}` });
     }
   };
 
@@ -32,38 +35,41 @@ const WeatherApp = () => {
     if (qSearch) {
       setSearchInput(qSearch);
     }
-  }, []);
+  }, [qSearch]);
 
   useEffect(() => {
     if (!searchInput) return;
 
     const getData = async () => {
       setLoading(true);
+      setResponse(null);
       try {
         let res = await axios.get(
           `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&lang=es&units=metric&appid=32af7cce19ca153549abe935840d6753`
         );
 
-        setResponse(res.data);
-        setError(false);
-        history.push({ search: `?q=${searchInput}` });
+        setTimeout(() => {
+          setResponse(res.data);
+          setError(false);
+          setLoading(false);
+        }, 500);
       } catch (error) {
         setErrorData(error.response);
         setError(true);
 
         setTimeout(() => {
+          setLoading(false);
           setError(false);
-        }, 5000);
+        }, 3000);
       }
     };
     getData();
-    setLoading(false);
   }, [searchInput]);
 
   return (
     <div className="App">
       <div className="header">
-        <h2>Clima Hoya</h2>
+        <h2>Clima Hoy</h2>
         <i className="fas logo">&#xf6c4;</i>
       </div>
       <SearchBar handleSearch={handleSearch} />

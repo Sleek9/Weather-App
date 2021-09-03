@@ -7,9 +7,9 @@
 .input,
 .button,
 .input:focus {
-  color: #787c8c;
+  color: var(--dark);
   border: none;
-  background-color: #2e3141;
+  background-color: var(--bg-second);
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -34,7 +34,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 481px) {
+@media (min-width: 800px) {
   /* CSS */
   .input {
     font-size: 17px;
@@ -50,4 +50,14 @@
 
 .input:focus {
   outline: none;
+}
+
+@media (min-width: 481px) and (max-width: 799px) {
+  /* CSS */
+  .form {
+    width: 100%;
+  }
+  .input {
+    width: 80%;
+  }
 }

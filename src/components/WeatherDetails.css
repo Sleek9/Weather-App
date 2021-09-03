@@ -1,6 +1,6 @@
 .card {
-  color: #787c8c;
-  background-color: #2e3341;
+  color: var(--text-color);
+  background-color: var(--bg-second);
   padding: 10px;
   border-radius: 5px;
   height: 100%;
@@ -14,6 +14,7 @@
     "img temp";
   grid-template-columns: 50% 1fr;
 }
+
 img {
   width: 100%;
   height: 100%;
@@ -55,7 +56,7 @@ img {
   font-size: 20px;
 }
 
-@media (min-width: 481px) {
+@media (min-width: 800px) {
   .card {
     width: 600px;
   }
@@ -68,5 +69,12 @@ img {
   .tempC {
     margin-top: 45px;
     font-size: 50px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 799px) {
+  /* CSS */
+  .card {
+    width: 90%;
   }
 }

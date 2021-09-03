@@ -1,9 +1,17 @@
 @import-normalize;
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
 
+:root {
+  --dark: #fff;
+  --white: #232433;
+  --gray-light: #2f2f2f;
+  --text-color: #eee;
+  --bg-second: #2e3141;
+}
+
 html {
   box-sizing: border-box;
-  background: #232433;
+  background: var(--white);
   font-family: "Roboto", sans-serif;
 }
 *,
@@ -16,7 +24,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: #787c8c;
+  color: var(--text-color);
 }
 
 .header {

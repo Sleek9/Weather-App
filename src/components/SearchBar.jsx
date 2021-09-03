@@ -7,17 +7,19 @@ const SearchBar = ({ handleSearch }) => {
   const handleChange = (e) => {
     if (e.target.value) {
       setSearch(e.target.value);
+    } else {
+      return;
     }
   };
 
-  const handleChangeSearch = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     handleSearch(search);
   };
 
   return (
     <>
-      <form onSubmit={handleChangeSearch} className="form">
+      <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
           className="input"

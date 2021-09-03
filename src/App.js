@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, HashRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import WeatherApp from "./components/WeatherApp";
 
 function App() {
