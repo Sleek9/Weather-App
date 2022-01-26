@@ -11,4 +11,4 @@ A simple application that shows you the weather, made with Reactjs
 <pre>npm run build</pre>
 
 ## Demo
-https://sleek9.github.io/Weather-App/
+https://fabriziocast.github.io/Weather-App
