@@ -15,6 +15,7 @@ import useFetchWeather from "../hooks/useFetchWeather";
 
 // Styles
 import "../App.css";
+import { Helmet } from "react-helmet";
 
 const WeatherApp = () => {
   const { setLocation, location, isLoading, error, response } =
@@ -42,6 +43,9 @@ const WeatherApp = () => {
 
   return (
     <div className="App">
+      <Helmet>
+        <title>Weather App | {location ? location : ""}</title>
+      </Helmet>
       <div className="header">
         <h2>Clima Hoy</h2>
         <i className="fas logo">&#xf6c4;</i>
