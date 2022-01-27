@@ -1,19 +1,16 @@
 import React, { useState } from "react";
+
+// Styles
 import "./SearchBar.css";
 
-const SearchBar = ({ handleSearch }) => {
+const SearchBar = ({ handleSearch, location }) => {
   const [search, setSearch] = useState(null);
 
-  const handleChange = (e) => {
-    if (e.target.value) {
-      setSearch(e.target.value);
-    } else {
-      return;
-    }
-  };
+  const handleChange = (e) => setSearch(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!search) handleSearch(null);
     handleSearch(search);
   };
 
@@ -25,7 +22,8 @@ const SearchBar = ({ handleSearch }) => {
           className="input"
           name="ciudad"
           id="ciudad"
-          placeholder="Ingresa tu ciudad"
+          placeholder="Ingresa tu ciudad o país"
+          defaultValue={location}
           onChange={handleChange}
           autoComplete="off"
         ></input>
