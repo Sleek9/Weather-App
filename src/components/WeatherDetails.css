@@ -1,6 +1,11 @@
 .card {
   color: var(--text-color);
-  background-color: var(--bg-second);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 10px;
   border-radius: 5px;
   height: 100%;
@@ -24,7 +29,7 @@ img {
   grid-area: city;
   font-size: 20px;
   font-weight: bold;
-  border-bottom: 1px solid #787c8c;
+  border-bottom: 1px solid #fff;
 }
 
 .temp {
@@ -72,9 +77,12 @@ img {
   }
 }
 
-@media (min-width: 481px) and (max-width: 799px) {
+@media (min-width: 281px) and (max-width: 799px) {
   /* CSS */
   .card {
     width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
   }
 }

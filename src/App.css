@@ -12,6 +12,14 @@
 html {
   box-sizing: border-box;
   background: var(--white);
+  background: rgb(123, 253, 240);
+  background: linear-gradient(
+    341deg,
+    rgba(123, 253, 240, 1) 0%,
+    rgba(74, 145, 255, 1) 43%
+  );
+  color: #fff;
+  min-height: 100vh;
   font-family: "Roboto", sans-serif;
 }
 *,
